@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Permet de generer aléatoirement des bombes à une cadence regulière
+/// <summary>
+/// Bombs random timed spawner: Permet de generer aléatoirement des bombes à une cadence regulière
+/// </summary> 
 public class BombsRandomTimedSpawner : MonoBehaviour {
 
 	// Liste des bombes à generer
@@ -27,7 +29,8 @@ public class BombsRandomTimedSpawner : MonoBehaviour {
 	public void SpawnObject() {
 		// On choisi aléatoirement quel type de bombe generer
 		randomInt = Random.Range(0, spawnees.Length);
-		Instantiate(spawnees[randomInt], transform.position, Quaternion.identity);
+		GameObject spawned = Instantiate(spawnees[randomInt], transform.position, Quaternion.identity) as GameObject;
+		spawned.transform.parent = GameObject.Find ("EnemiesContainer").transform;
 
 		// On arrete la generation si le booleen est activé
 		if(stopSpawning) {

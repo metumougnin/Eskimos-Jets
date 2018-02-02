@@ -28,7 +28,7 @@ public class ChestSpawner : MonoBehaviour {
 
 	// Genere les objets grace à la methode Instanciate
 	public void SpawnObject() {
-		position = new Vector3 (Random.Range(2f, 40f), 25f, playerRef.transform.position.z);
+		position = new Vector3 (Random.Range(4f, 38f), 25f, playerRef.transform.position.z);
 		spawn =  Instantiate(spawnee, position, spawnee.transform.rotation) as GameObject;
 
 

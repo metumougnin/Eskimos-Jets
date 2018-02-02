@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileSpawner : MonoBehaviour {
+public class MineSpawner : MonoBehaviour {
 
-	// Liste des objets à generer
+	// objet à generer
 	public GameObject spawnee;
-	// bolléen qui permet d'arreter la generation
+	// booleen qui permet d'arreter la generation
 	public bool stopSpawning = false;
-	// Delai avant de debuter l'ensemble des générations
+	// Delai avant de debuter l'ensemble des generations
 	public float spawnTime;
 	// Delai entre chaque generation
 	public float spawnDelay;
@@ -24,7 +24,7 @@ public class MissileSpawner : MonoBehaviour {
 
 	// Genere les objets grace à la methode Instanciate
 	public void SpawnObject () {
-		position = new Vector3 ( playerRef.transform.position.x, 30f, playerRef.transform.position.z );
+		position = new Vector3 ( Random.Range( 4f, 38f ), 1.3f, playerRef.transform.position.z );
 		GameObject spawned = Instantiate( spawnee, position, Quaternion.identity ) as GameObject;
 		spawned.transform.parent = GameObject.Find ("EnemiesContainer").transform;
 

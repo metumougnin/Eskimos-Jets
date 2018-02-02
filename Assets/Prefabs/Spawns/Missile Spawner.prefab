@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4253379623199494
 Transform:
   m_ObjectHideFlags: 1
@@ -54,5 +54,5 @@ MonoBehaviour:
   spawnee: {fileID: 1243820323454366, guid: a9289e2aed5974d9fb8b09a61c8dfab6, type: 2}
   stopSpawning: 0
   spawnTime: 1
-  spawnDelay: 7
+  spawnDelay: 10
   playerRef: {fileID: 0}
