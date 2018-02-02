@@ -16,6 +16,14 @@ public class BombsRandomTimedSpawner : MonoBehaviour {
 	// Delai entre chaque generation
 	public float spawnDelay;
 
+	/*
+	public float minSpeed;
+	public float maxSpeed;
+
+	public bool leftDirection = false;
+	public bool rightDirection = false;
+	*/
+
 	// pour generer un type bombe de manière aléartoire
 	private int randomInt;
 
@@ -31,6 +39,19 @@ public class BombsRandomTimedSpawner : MonoBehaviour {
 		randomInt = Random.Range(0, spawnees.Length);
 		GameObject spawned = Instantiate(spawnees[randomInt], transform.position, Quaternion.identity) as GameObject;
 		spawned.transform.parent = GameObject.Find ("EnemiesContainer").transform;
+
+		/*
+		float speed = Random.Range(minSpeed, maxSpeed);
+		Vector3 direction = Vector3.zero;
+		if( leftDirection ) {
+			direction = Vector3.left;
+		} else if( rightDirection ) {
+			direction = Vector3.right;
+		}
+
+
+		spawned.GetComponent<Rigidbody> ().AddForce (direction * speed);
+		*/
 
 		// On arrete la generation si le booleen est activé
 		if(stopSpawning) {

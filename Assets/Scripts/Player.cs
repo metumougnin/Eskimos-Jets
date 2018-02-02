@@ -71,6 +71,12 @@ public class Player : MonoBehaviour {
 	private float shieldCountdown;
 	public GameObject shield;
 
+	//
+	public bool isPoisoned = false;
+	public float poisonDuration = 3f;
+	public float poisonDurationCopy;
+	public GameObject poisonIndicator;
+
 	// Couches
 	private int bombsLayer = 10;
 	private int foodsLayer = 12;
@@ -138,6 +144,8 @@ public class Player : MonoBehaviour {
 
 		jetpackEnergy = jetpackEnergyMax;
 		isJetPackEnabled = true;
+
+		poisonDurationCopy = poisonDuration;
 	}
 
 	void FixedUpdate() {
@@ -157,6 +165,15 @@ public class Player : MonoBehaviour {
 			isJetPackEnabled = false;
 		} else if (jetpackEnergy >= 5f) {
 			isJetPackEnabled = true;
+		}
+
+		if (isPoisoned && (poisonDurationCopy >= 0f)) {
+			poisonDurationCopy -= Time.deltaTime;
+			poisonIndicator.SetActive( true );
+		} else {
+			isPoisoned = false;
+			poisonDurationCopy = poisonDuration;
+			poisonIndicator.SetActive( false );
 		}
 
 

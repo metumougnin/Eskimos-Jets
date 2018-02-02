@@ -24,7 +24,12 @@ public class MineSpawner : MonoBehaviour {
 
 	// Genere les objets grace à la methode Instanciate
 	public void SpawnObject () {
-		position = new Vector3 ( Random.Range( 4f, 38f ), 1.3f, playerRef.transform.position.z );
+		float xPos = playerRef.transform.position.x;
+		while( ( xPos > playerRef.transform.position.x - 3f ) && ( xPos < playerRef.transform.position.x + 3f ) ) {
+			xPos =  Random.Range (4f, 38f);
+		}
+
+		position = new Vector3 ( xPos, 1.3f, playerRef.transform.position.z );
 		GameObject spawned = Instantiate( spawnee, position, Quaternion.identity ) as GameObject;
 		spawned.transform.parent = GameObject.Find ("EnemiesContainer").transform;
 

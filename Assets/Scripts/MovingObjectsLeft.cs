@@ -6,20 +6,18 @@ using UnityEngine;
 // dans l'espace de jeu. 
 public class MovingObjectsLeft : MovingObjectsRight {
 
-
 	// Use this for initialization
 	void Start () {
 		direction = Vector3.left;
-		//minSpeed = 0.1f;
-		//maxSpeed = 2.0f;
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+		
 		// On attribue une vitesse aléatoire et on applique la force sur l'objet
 		speed = Random.Range(minSpeed, maxSpeed);
-		GetComponent<Rigidbody> ().AddForce (direction * speed);
+		GetComponent<Rigidbody> ().AddForce (direction * speed, ForceMode.Force);
+
 	}
 
 	// On evite aux bombes de quitter l'aire de jeu

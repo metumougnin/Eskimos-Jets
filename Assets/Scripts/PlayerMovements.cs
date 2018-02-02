@@ -55,68 +55,70 @@ public class PlayerMovements : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		// movements based on keyboard inputs
-		if (Input.touchCount == 0) {
-			// Deplacement Horizontal
-			horizontalAxis = Input.GetAxis ("Horizontal");
-			movementDirection = new Vector3 (horizontalAxis, 0, 0);
-
-			// Saut
-			if(Input.GetKey(KeyCode.UpArrow)){
-				Jump ();
-			}
-		}
-
-		// Movements based on touchscreen
-		else { 
-			if (Input.GetTouch (0).tapCount == 1) {
-
-				horizontalAxis = 0f;
-
+		if( GetComponent<Player>().isPoisoned == false ) {
+			// movements based on keyboard inputs
+			if (Input.touchCount == 0) {
 				// Deplacement Horizontal
-				// Si on appuie la partie gauche de l'ecran, on se deplace à gauche
-				// Si on appuie la partie droite de l'écran, on se déplace à droite
-				if (Input.GetTouch (0).position.x < (Screen.width / 2)) {
-					movementDirection = leftHorizontalAxis;
-					horizontalAxis = -1f;
-				} else if (Input.GetTouch (0).position.x > (Screen.width / 2)) {
-					movementDirection = rightHorizontalAxis;
-					horizontalAxis = 1f;
-				} 
+				horizontalAxis = Input.GetAxis ("Horizontal");
+				movementDirection = new Vector3 (horizontalAxis, 0, 0);
 
-				// Si on touche la partie superieur de l'ecran, on saute
-				if (Input.GetTouch (0).position.y > (Screen.height / 2)) {
+				// Saut
+				if(Input.GetKey(KeyCode.UpArrow)){
 					Jump ();
-					// On annule le vecteur de direction afin d'eviter que le joueur se deplace
-					// automatiquement à l'horizontale pendant le saut.
-					horizontalAxis = 0f;
-					movementDirection = new Vector3 (0, 0, 0);
 				}
-
 			}
+
+			// Movements based on touchscreen
+			else { 
+				if (Input.GetTouch (0).tapCount == 1) {
+
+					horizontalAxis = 0f;
+
+					// Deplacement Horizontal
+					// Si on appuie la partie gauche de l'ecran, on se deplace à gauche
+					// Si on appuie la partie droite de l'écran, on se déplace à droite
+					if (Input.GetTouch (0).position.x < (Screen.width / 2)) {
+						movementDirection = leftHorizontalAxis;
+						horizontalAxis = -1f;
+					} else if (Input.GetTouch (0).position.x > (Screen.width / 2)) {
+						movementDirection = rightHorizontalAxis;
+						horizontalAxis = 1f;
+					} 
+
+					// Si on touche la partie superieur de l'ecran, on saute
+					if (Input.GetTouch (0).position.y > (Screen.height / 2)) {
+						Jump ();
+						// On annule le vecteur de direction afin d'eviter que le joueur se deplace
+						// automatiquement à l'horizontale pendant le saut.
+						horizontalAxis = 0f;
+						movementDirection = new Vector3 (0, 0, 0);
+					}
+
+				}
+			}
+
+			//TODO: GERER LE COMPORTEMENT des ANIMS POUR MOBILE
+
+			// Create a boolean that is true if either of the input axes is non-zero.
+			isRunning = /*(Input.GetTouch (0).position.x != 0f) || */ (horizontalAxis != 0);
+
+
+
+
+			// On stocke la vitesse normale de deplacement dans une variable temporaire
+			// si on contate que le joueur a effectué un saut, on divise par 3 sa vitesse de deplacement
+			tmpSpeed = movementSpeed;
+			if (rigidBody.velocity.y != 0) {
+				movementSpeed /= 3;
+			}
+
+			// Deplacer le joueur
+			movementDirection = movementDirection * Time.deltaTime * movementSpeed;
+			rigidBody.MovePosition (transform.position + movementDirection);
+
+			// Remetrre la valeur initiale de la vitesse de deplacement
+			movementSpeed = tmpSpeed;
 		}
-
-		//TODO: GERER LE COMPORTEMENT des ANIMS POUR MOBILE
-
-		// Create a boolean that is true if either of the input axes is non-zero.
-		isRunning = /*(Input.GetTouch (0).position.x != 0f) || */ (horizontalAxis != 0);
-
-
-
-
-		// On stocke la vitesse normale de deplacement dans une variable temporaire
-		// si on contate que le joueur a effectué un saut, on divise par 3 sa vitesse de deplacement
-		tmpSpeed = movementSpeed;
-		if (rigidBody.velocity.y != 0) {
-			movementSpeed /= 3;
-		}
-
-		// Deplacer le joueur
-		movementDirection = movementDirection * Time.deltaTime * movementSpeed;
-		rigidBody.MovePosition (transform.position + movementDirection);
-
-		// Remetrre la valeur initiale de la vitesse de deplacement
-		movementSpeed = tmpSpeed;
 	}
 
 	// Fonction qui gere le saut du joueur

@@ -31,6 +31,11 @@ public class PlayerAnimationFSM : MonoBehaviour {
 	void Update () {
 		//anim.SetBool ("isPlayerRunning", playerMovementsRef.isRunning);
 
+		if (player.isPoisoned)
+			anim.SetBool( "isPoisoned", true );
+		else
+			anim.SetBool( "isPoisoned", false );
+
 		if (playerMovementsRef.horizontalAxis < 0)
 			jetpack.transform.position = new Vector3 (player.transform.position.x + 1f, player.transform.position.y, player.transform.position.z);
 		else if (playerMovementsRef.horizontalAxis > 0) 
