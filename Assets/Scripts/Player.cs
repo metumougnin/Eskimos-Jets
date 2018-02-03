@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 	// Santé maximum du joeur
 	public int maxHealth;
 	// Texte qui indique la valeur numerique de la vie en pleine partie
-	public Text healthTextInt;
+		//public Text healthTextInt;
 	// Bar de santé du joueur
 	public Image healthBar;
 	// Indique si le joeur est mort
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour {
 		floatingText.text = theText;
 		Text instance = Instantiate (floatingText, floatingTextPosRef.transform.position, Quaternion.identity) as Text;
 		//Text instance = Instantiate (floatingText, new Vector3 (transform.position.x + 10f, transform.position.y + 3f, transform.position.z), Quaternion.identity) as Text;
-		instance.transform.parent = hud.transform;
+		instance.transform.SetParent( hud.transform );
 	}
 
 	public void AddJetpackEnergy(float value) {
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
-		healthTextInt.text = health.ToString ();
+		//healthTextInt.text = health.ToString ();
 		isDead = false;
 		Coin.totalCoins = 0;
 
@@ -181,7 +181,7 @@ public class Player : MonoBehaviour {
 		coinsNumberText.text = Coin.totalCoins.ToString ();
 
 		// Afficher la valeur numerique de la santé du joueur
-		healthTextInt.text = health.ToString ();
+			//healthTextInt.text = health.ToString ();
 		// Mise à jour barre de santé du joueur
 		healthBar.fillAmount = (float)health / (float)maxHealth;
 

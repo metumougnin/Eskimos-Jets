@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371807599879480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.3, y: 7.9, z: 5.9}
+  m_LocalPosition: {x: -3.3, y: 11.99, z: 5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,5 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnee: {fileID: 1905225938855668, guid: 847c70734c2b0c9418766b728607559d, type: 2}
   stopSpawning: 0
-  spawnTime: 5
-  spawnDelay: 10
+  spawnTime: 1
+  spawnDelay: 6

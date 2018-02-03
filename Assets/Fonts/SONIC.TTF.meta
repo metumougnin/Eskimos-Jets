@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e77199bc8ed0e4dbba2e32aa0b2f6ab4
+timeCreated: 1517606871
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sonic Mega Font
+  fontNames:
+  - Sonic Mega Font
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

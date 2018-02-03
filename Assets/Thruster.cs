@@ -27,8 +27,6 @@ public class Thruster : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (flag) {
-			Debug.Log ("YESS");
-
 			// direction de la force à appliquer
 			Vector3 direction = Vector3.zero;
 			if (leftForce) {
@@ -45,10 +43,7 @@ public class Thruster : MonoBehaviour {
 	}
 
 	void OnCollisionEnter( Collision other ) {
-		Debug.Log ("PING");
 		if( other.gameObject.tag == "Player" ){
-			Debug.Log ("OKOK");
-
 			flag = true;
 		}
 	}

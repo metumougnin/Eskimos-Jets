@@ -38,7 +38,7 @@ public class BombsRandomTimedSpawner : MonoBehaviour {
 		// On choisi aléatoirement quel type de bombe generer
 		randomInt = Random.Range(0, spawnees.Length);
 		GameObject spawned = Instantiate(spawnees[randomInt], transform.position, Quaternion.identity) as GameObject;
-		spawned.transform.parent = GameObject.Find ("EnemiesContainer").transform;
+		spawned.transform.SetParent( GameObject.Find ("EnemiesContainer").transform );
 
 		/*
 		float speed = Random.Range(minSpeed, maxSpeed);

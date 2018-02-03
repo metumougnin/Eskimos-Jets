@@ -28,13 +28,14 @@ public class CoinsTimedSpawner : MonoBehaviour {
 
 	// Genere les objets grace à la methode Instanciate
 	public void SpawnCoins() {
-		float x = Random.Range (2, 25);
+		float x = Random.Range (2, 20);
 		float y = Random.Range (3, 15);
 		//positionNextCoin = transform.position;
 		positionNextCoin = new Vector3(x, y, 6f);
 		for (int count = 0; count < 10; count++) {
 			positionNextCoin.x += 2;
-			Instantiate (spawnee,  positionNextCoin, Quaternion.identity);
+			GameObject spawned = Instantiate( spawnee, positionNextCoin, Quaternion.identity ) as GameObject;
+			spawned.transform.SetParent( GameObject.Find( "CoinsRowContainer" ).transform );
 		}
 
 		// On arrete la generation si le booleen est activé

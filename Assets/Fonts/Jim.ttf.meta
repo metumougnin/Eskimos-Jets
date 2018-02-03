@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 122548c0d174a4ced938e0b3de5ab335
+timeCreated: 1517607107
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Earthworm Jim
+  fontNames:
+  - Earthworm Jim
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

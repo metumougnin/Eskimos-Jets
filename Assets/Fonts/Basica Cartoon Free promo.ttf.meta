@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: dcd2afe6650974e219c02db95495f6ab
+timeCreated: 1517607330
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Basica Cartoon
+  fontNames:
+  - Basica Cartoon
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

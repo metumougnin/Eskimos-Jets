@@ -71,7 +71,7 @@ public class Chest : MonoBehaviour {
 		Vector3 position = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
 		randomObject = Random.Range (0, spawnees.Length);
 		GameObject generatedPowerup = Instantiate(spawnees[randomObject], position, Quaternion.identity) as GameObject;
-		generatedPowerup.transform.parent = this.transform;
+		generatedPowerup.transform.SetParent( this.transform );
 
 			CancelInvoke("SpawnObject");
 	}
