@@ -3352,6 +3352,7 @@ GameObject:
   - component: {fileID: 114048644768141820}
   - component: {fileID: 65418599031463660}
   - component: {fileID: 114219072972870030}
+  - component: {fileID: 114050905217604570}
   m_Layer: 13
   m_Name: PLAYER
   m_TagString: Player
@@ -6855,6 +6856,18 @@ MonoBehaviour:
   duration: 1
   slowDownAmount: 1
   shouldShake: 0
+--- !u!114 &114050905217604570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946974714981380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e89e224431d442f689d543f46e59f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCharacterName: P1
 --- !u!114 &114219072972870030
 MonoBehaviour:
   m_ObjectHideFlags: 1

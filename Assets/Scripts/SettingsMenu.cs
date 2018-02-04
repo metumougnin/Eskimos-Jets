@@ -13,8 +13,14 @@ public class SettingsMenu : MonoBehaviour {
 	public Text highscoreTextValue;
 	public Text totalCoinsValue;
 
+	public DeterminePlayerCharacter playerRef;
+
+	private string currentCharacter;
+	public string defaultCharacterName = "P1";
+
+
 	void Start() {
-		
+		//string currentCharacter = PlayerPrefs.GetString ("playerCharacter", "P1");
 	}
 
 	void Update() {
@@ -65,5 +71,21 @@ public class SettingsMenu : MonoBehaviour {
 	// fonction temporaire
 	public void ResetHighscore() {
 		PlayerPrefs.SetInt( "highScore", 0 );
+	}
+
+	public void CharacterSelection ( string name ) {
+		currentCharacter = PlayerPrefs.GetString( "playerCharacter", defaultCharacterName );
+		//GameObject.Find( currentCharacter ).SetActive( true );
+
+		// desactiver l'ancier personnage
+		foreach( Transform child in playerRef.transform ) {
+			if( child.gameObject.name == currentCharacter ) {
+				child.gameObject.SetActive( false );
+			}
+		}
+
+
+		// activer le nouveau personnage dans les prefs
+		PlayerPrefs.SetString( "playerCharacter", name );
 	}
 }
