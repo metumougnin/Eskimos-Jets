@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114195844767770660}
   - component: {fileID: 114162444283719346}
   - component: {fileID: 114990575519001844}
-  - component: {fileID: 114506155287847944}
+  - component: {fileID: 114442886042804100}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -67,7 +67,7 @@ Camera:
   far clip plane: 1000
   field of view: 107
   orthographic: 1
-  orthographic size: 12.8
+  orthographic size: 12.49
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startRect:
     serializedVersion: 2
-    x: 200
+    x: 20
     y: 10
     width: 75
     height: 50
@@ -121,33 +121,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc44c9b38fbf486c957dc54c21879d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114506155287847944
+--- !u!114 &114442886042804100
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977309166948212}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 390397f02bff7644ab045efd81d0d720, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9e31fdf962e3e4ca3b62ec3ecc2f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QualityLevel: 0
-  AutoRegisterObjs: 1
-  OverlayCameras: []
-  CullingMask:
+  Exposure: 1
+  UseToneMapping: 0
+  UseDithering: 0
+  QualityLevel: 1
+  BlendAmount: 0
+  LutTexture: {fileID: 0}
+  LutBlendTexture: {fileID: 0}
+  MaskTexture: {fileID: 0}
+  UseDepthMask: 0
+  DepthMaskCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  UseVolumes: 0
+  ExitVolumeBlendTime: 1
+  TriggerVolumeProxy: {fileID: 0}
+  VolumeCollisionMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  QualitySteps: 1
-  MotionScale: 5
-  CameraMotionMult: 1
-  MinVelocity: 1
-  MaxVelocity: 10
-  DepthThreshold: 0.001
-  WorkerThreads: 0
-  SystemThreadPool: 0
-  ForceCPUOnly: 0
-  DebugMode: 0
+  EffectFlags:
+    components: []
+  sharedInstanceID: a0be3a45-b111-45de-9cdb-9e5baca84f95
 --- !u!114 &114960199762248384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,8 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdfdcbe64f5d456caf9f7e818e3d305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0.4
-  duration: 3
+  power: 0.3
+  duration: 1
   slowDownAmount: 1
   shouldShake: 0
 --- !u!114 &114990575519001844

@@ -5,11 +5,20 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
-	public Text scoreText;
+	public Text scoreTextValue;
+	public Text coinsTextValue;
+
 	public int scorePoints = 5;
 	private DataManager dataManager;
 
+	private int highScore;
+
+
 	//private int score;
+
+	void Start() {
+		highScore = PlayerPrefs.GetInt( "highScore", 0 );
+	}
 
 
 	void Awake() {
@@ -20,6 +29,8 @@ public class ScoreManager : MonoBehaviour {
 	public void SettoZero() {
 		//score = 0;
 		dataManager.score = 0;
+		dataManager.coins = 0;
+		dataManager.newhighScoreFlag = false;
 	}
 		
 	
@@ -27,7 +38,16 @@ public class ScoreManager : MonoBehaviour {
 	void Update () {
 		//score += 5;
 		//DataManager.instance.score += 5;
-		scoreText.text = dataManager.score.ToString ();
+		scoreTextValue.text = dataManager.score.ToString();
+		coinsTextValue.text = dataManager.coins.ToString();
+
+		if( dataManager.score > highScore ) {
+			//TODO: afficher new highscore dans le HUD
+			// set the new highscore flag 
+
+			dataManager.newhighScoreFlag = true;
+		}
+			
 	}
 
 	public void AddScorePoints() {

@@ -9,7 +9,7 @@ public class CoinByStar : Coin {
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "Player") {
 			//AudioSource.PlayClipAtPoint (coinClip, transform.position);
-			totalCoins++;
+			//totalCoins++;
 			Destroy (this.gameObject);
 		}
 	}

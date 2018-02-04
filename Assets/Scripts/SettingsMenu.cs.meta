@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 1948bc6c950804901b39adab23985f16
-timeCreated: 1516977166
+timeCreated: 1517662161
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audioMixer: {fileID: 24100000, guid: a7b8f80ec694c44cb91c96a9b559cbeb, type: 2}
+  - graphicsDropdownLabel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -52,6 +52,9 @@ public class Player : MonoBehaviour {
 
 	//
 	public ScoreManager scoreManager;
+	private DataManager dataManager;
+
+	public GameObject highScoreHUD;
 
 	//
 	public Text floatingText;
@@ -104,6 +107,9 @@ public class Player : MonoBehaviour {
 
 	public void AddJetpackEnergy(float value) {
 		jetpackEnergy += value;
+		if (jetpackEnergy > jetpackEnergyMax)
+			jetpackEnergy = jetpackEnergyMax;
+
 		string str = "Jetpack + " + value.ToString();
 		PrintFloatingText (str);
 	}
@@ -130,6 +136,8 @@ public class Player : MonoBehaviour {
 
 	void Awake(){
 		chronoPieces = GetComponent<Chrono>();
+
+		dataManager = DataManager.FindObjectOfType<DataManager> ();
 	}
 
 	// Use this for initialization
@@ -137,7 +145,8 @@ public class Player : MonoBehaviour {
 		health = maxHealth;
 		//healthTextInt.text = health.ToString ();
 		isDead = false;
-		Coin.totalCoins = 0;
+		//Coin.totalCoins = 0;
+		//dataManager.coins = 0;
 
 		scoreManager.SettoZero ();
 
@@ -178,7 +187,7 @@ public class Player : MonoBehaviour {
 
 
 		// Afficher le nombre de pieces recoltees par le joueur
-		coinsNumberText.text = Coin.totalCoins.ToString ();
+		coinsNumberText.text = dataManager.coins.ToString ();
 
 		// Afficher la valeur numerique de la santé du joueur
 			//healthTextInt.text = health.ToString ();
@@ -190,8 +199,18 @@ public class Player : MonoBehaviour {
 		levelScoreNumberText.text = levelScore.ToString ();
 
 
+		//
+		if( dataManager.newhighScoreFlag ) {
+			highScoreHUD.SetActive( true );
+		}
+
 		// Si le joeur est mort, on arrete la partie
-		if (isDead) {
+		if( isDead ) {
+			if( dataManager.newhighScoreFlag ) {
+				PlayerPrefs.SetInt( "highScore", dataManager.score );
+				dataManager.newhighScoreFlag = false;
+			}
+				
 			levelManager.LoadScene ("Score");
 		}
 

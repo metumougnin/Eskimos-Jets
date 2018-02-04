@@ -12,6 +12,10 @@ public class DataManager : MonoBehaviour
 	public int health;
 	/// <summary>The player's remaining lives.</summary>
 	public int lives;
+	/// <summary>The player's actual coins.</summary>
+	public int coins;
+	/// <summary>Determine whether or not the players broke the highscore.</summary>
+	public bool newhighScoreFlag = false;
 
 	/// <summary>Awake is called when the script instance is being loaded.</summary>
 	void Awake()

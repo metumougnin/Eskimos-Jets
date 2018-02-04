@@ -8,16 +8,22 @@ public class Coin : MonoBehaviour {
 
 	public float rotationSpeed;
 
-	public  static int totalCoins;
+	//public  static int totalCoins;
 
 	//[HideInInspector]
 	protected GameObject PickedUpSound;
 
 	public AudioClip coinClip;
 
+	private DataManager dataManager;
+
+	private int totalCoins;
+
 	// Use this for initialization
 	void Awake () {
 		//totalCoins = 0;
+
+		dataManager = DataManager.FindObjectOfType<DataManager>();
 	}
 
 	void Start(){
@@ -37,7 +43,14 @@ public class Coin : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			//PickedUpSound.GetComponent<AudioSource> ().Play ();
 			AudioSource.PlayClipAtPoint(coinClip, transform.position);
+			//totalCoins++;
+			dataManager.coins++;
+
+			totalCoins = PlayerPrefs.GetInt( "coins", 0 );
 			totalCoins++;
+			PlayerPrefs.SetInt( "coins", totalCoins );
+
+
 			Destroy (this.gameObject);
 		}
 	}

@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94edfc15100c2406cb30e7c898bb8db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreTextValue: {fileID: 0}
+  coinsTextValue: {fileID: 0}
   scorePoints: 5
-  dataManager: {fileID: 0}
+  newhighScoreFlag: 0
