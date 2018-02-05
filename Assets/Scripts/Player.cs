@@ -198,6 +198,10 @@ public class Player : MonoBehaviour {
 		levelGoalNumberText.text = levelGoal.ToString();
 		levelScoreNumberText.text = levelScore.ToString ();
 
+		if (dataManager.totalCrates > 1) {
+			levelManager.LoadScene ("BCrateFromGameScene");
+		}
+
 
 		//
 		if( dataManager.newhighScoreFlag ) {
@@ -209,9 +213,9 @@ public class Player : MonoBehaviour {
 			if( dataManager.newhighScoreFlag ) {
 				PlayerPrefs.SetInt( "highScore", dataManager.score );
 				dataManager.newhighScoreFlag = false;
-			}
-				
-			levelManager.LoadScene ("Score");
+				levelManager.LoadScene ("CongratulationScene");
+			} else
+				levelManager.LoadScene ("ScoreSummaryScene");
 		}
 
 		// Si le joueur gagne, on affiche la scene de victoire

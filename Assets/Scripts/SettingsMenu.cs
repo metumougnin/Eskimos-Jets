@@ -18,6 +18,9 @@ public class SettingsMenu : MonoBehaviour {
 	private string currentCharacter;
 	public string defaultCharacterName = "P1";
 
+	public GameObject exitMenu;
+	//public GameObject mainMenu;
+
 
 	void Start() {
 		//string currentCharacter = PlayerPrefs.GetString ("playerCharacter", "P1");
@@ -55,6 +58,23 @@ public class SettingsMenu : MonoBehaviour {
 
 		setGraphicsQuality( QualitySettings.GetQualityLevel() );
 		graphicsSettings.value = QualitySettings.GetQualityLevel();
+
+
+		// Afficher le menu de sortie d'application
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			if (this.gameObject.activeSelf) {
+				if(!exitMenu.activeSelf)
+					exitMenu.SetActive (true);
+				else
+					exitMenu.SetActive (false);
+			} else {
+				//TODO: Grosse vague de testss à faire normalement pour tous les menus
+
+				//this.gameObject.SetActive (false);
+				//mainMenu.SetActive (true);
+			}
+		}
+			
 	}
 
 
@@ -87,5 +107,17 @@ public class SettingsMenu : MonoBehaviour {
 
 		// activer le nouveau personnage dans les prefs
 		PlayerPrefs.SetString( "playerCharacter", name );
+	}
+
+
+
+	public void ExitApplication() {
+		exitMenu.SetActive (false);
+		if (Application.platform == RuntimePlatform.Android) {
+			AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+			activity.Call<bool>("moveTaskToBack", true);
+		} else {
+			Application.Quit();
+		}
 	}
 }

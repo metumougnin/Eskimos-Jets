@@ -31,6 +31,7 @@ public class ScoreManager : MonoBehaviour {
 		dataManager.score = 0;
 		dataManager.coins = 0;
 		dataManager.newhighScoreFlag = false;
+		dataManager.totalCrates = 0;
 	}
 		
 	
