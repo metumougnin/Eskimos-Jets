@@ -74,6 +74,13 @@ public class Player : MonoBehaviour {
 	private float shieldCountdown;
 	public GameObject shield;
 
+	// Magnet
+	public bool isMagnetEnabled = false;
+	public float magnetLifeTime = 10f;
+	private bool magnetCounterFlag = false;
+	private float magnetCountdown;
+	public GameObject magnetIconFromPlayer;
+
 	//
 	public bool isPoisoned = false;
 	public float poisonDuration = 3f;
@@ -241,6 +248,22 @@ public class Player : MonoBehaviour {
 				shield.SetActive (false);
 				shieldCounterFlag = false;
 				isShieldEnabled = false;
+			}
+		}
+
+		if(isMagnetEnabled) {
+			if (!magnetCounterFlag) {
+				magnetCountdown = magnetLifeTime;
+				magnetIconFromPlayer.SetActive (true);
+				magnetCounterFlag = true;
+			}
+
+			if (magnetCountdown > 0) {
+				magnetCountdown -= Time.deltaTime;
+			} else {
+				magnetIconFromPlayer.SetActive (false);
+				magnetCounterFlag = false;
+				isMagnetEnabled = false;
 			}
 		}
 

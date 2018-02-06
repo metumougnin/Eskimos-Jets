@@ -39,7 +39,7 @@ public class Coin : MonoBehaviour {
 		transform.Rotate (Vector3.up * Time.deltaTime * rotationSpeed);
 	}
 
-	void OnTriggerEnter(Collider other){
+	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "Player") {
 			//PickedUpSound.GetComponent<AudioSource> ().Play ();
 			AudioSource.PlayClipAtPoint(coinClip, transform.position);
