@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/ScoreSummaryScene.unity
     guid: 3d08e38a0e87b44af8d7b3d2e9e224be
   - enabled: 1
+    path: Assets/_Scenes/TutorialScene.unity
+    guid: d62989ff34736486983a1d62526fceee
+  - enabled: 1
     path: Assets/_Scenes/Win_Scene.unity
     guid: 4643044c585d24d50b54d0ad5cbaffdb
   - enabled: 1

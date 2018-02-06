@@ -198,9 +198,11 @@ public class Player : MonoBehaviour {
 		levelGoalNumberText.text = levelGoal.ToString();
 		levelScoreNumberText.text = levelScore.ToString ();
 
+		/*
 		if (dataManager.totalCrates > 1) {
 			levelManager.LoadScene ("BCrateFromGameScene");
 		}
+		*/
 
 
 		//
@@ -210,12 +212,15 @@ public class Player : MonoBehaviour {
 
 		// Si le joeur est mort, on arrete la partie
 		if( isDead ) {
-			if( dataManager.newhighScoreFlag ) {
-				PlayerPrefs.SetInt( "highScore", dataManager.score );
+			if (dataManager.newhighScoreFlag) {
+				PlayerPrefs.SetInt ("highScore", dataManager.score);
 				dataManager.newhighScoreFlag = false;
 				levelManager.LoadScene ("CongratulationScene");
-			} else
+			} else if (dataManager.totalCrates > 1) {
+				levelManager.LoadScene ("BCrateFromGameScene");
+			} else {
 				levelManager.LoadScene ("ScoreSummaryScene");
+			}
 		}
 
 		// Si le joueur gagne, on affiche la scene de victoire
